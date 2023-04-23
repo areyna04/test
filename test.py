@@ -18,7 +18,7 @@ while True:
         if line.startswith("Requests per second:"):
             rpm = float(re.findall(r'\d+\.\d+',line)[0])
         if line.startswith("Failed requests:"):
-            err = float(re.findall(r'\d+',line)[0])
+            err = int(re.findall(r'\d+',line)[0])
             if err != 0:
                 break
     if tpr is None:
@@ -27,7 +27,7 @@ while True:
     if tpr >= target_tpr :
         break
     concurrent_requests += concurrent_increment
-print(f"Maximum Time Per Request: {tpr}, Request per second: {rpm}")
+print(f"Maximum Time Per Request: {tpr}, Request per second: {rpm}, Error: {err}")
 
 url = "http://localhost:5000/api/tasks"
 max_requests = 1000

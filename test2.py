@@ -9,7 +9,7 @@ err = 0
 
 print("Escenario 2")
 while True:
-    cmd = f"ab -p test.json -T application/json -n {max_requests} -c {concurrent_requests} -H Content-Type:application/json -g output2.csv -v 2 {url}" 
+    cmd = f"ab -p test.json -T application/json -n {max_requests} -c {concurrent_requests} -H Content-Type:application/json -g output2.csv {url}" 
     print(cmd)
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     tpr = None

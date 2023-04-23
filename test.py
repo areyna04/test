@@ -12,7 +12,7 @@ concurrent_requests = 10
 concurrent_increment = 10
 
 # Definir la tasa de solicitudes por minuto a superar
-target_tpr = 1.5
+target_tpr = 10
 
 # Iniciar la iteración de prueba y error
 while True:

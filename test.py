@@ -3,7 +3,7 @@ import subprocess, re
 url = "http://localhost:5000/api/tasks"
 
 # Definir el número máximo de solicitudes que se intentarán
-max_requests = 10000
+max_requests = 1000
 
 # Definir el número inicial de solicitudes concurrentes
 concurrent_requests = 10

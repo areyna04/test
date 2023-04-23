@@ -24,7 +24,7 @@ while True:
     rpm = None
     for line in result.stdout.splitlines():
         if line.startswith("Time per request"):
-            rpm = float(re.findall(r'\d+\.\d+',line))
+            rpm = float(re.finditer(r'\d+\.\d+',line))
             print(rpm)
             break
 

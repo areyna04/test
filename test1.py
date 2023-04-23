@@ -9,7 +9,7 @@ err = 0
 
 print("Escenario 1")
 while True:
-    cmd = f"ab -n {max_requests} -c {concurrent_requests} -g output1.csv {url}"
+    cmd = f"ab -n {concurrent_requests} -c {concurrent_requests} -g output1.csv {url}"
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     tpr = None
     rpm = None

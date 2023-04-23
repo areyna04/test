@@ -12,7 +12,7 @@ concurrent_requests = 10
 concurrent_increment = 10
 
 # Definir la tasa de solicitudes por minuto a superar
-target_rpm = 1000
+target_tpr = 1.5
 
 # Iniciar la iteración de prueba y error
 while True:
@@ -21,26 +21,29 @@ while True:
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
 
     # Analizar la salida del comando ab para obtener la tasa de solicitudes por minuto
+    tpr = None
     rpm = None
     for line in result.stdout.splitlines():
         if line.startswith("Time per request"):
+            tpr = float(re.findall(r'\d+\.\d+',line)[0])
+            break
+        if line.startswith("Requests per second:"):
             rpm = float(re.findall(r'\d+\.\d+',line)[0])
-            print(rpm)
             break
 
     # Si no se pudo obtener la tasa de solicitudes por minuto, salir del bucle
-    if rpm is None:
+    if tpr is None:
         break
 
     # Imprimir la tasa de solicitudes por minuto actual y las solicitudes concurrentes utilizadas
-    print(f"RPM: {rpm}, Concurrent requests: {concurrent_requests}")
+    print(f"Time per request: {tpr}, Requests per second: {rpm}, Concurrent requests: {concurrent_requests}")
 
     # Si se alcanza la tasa de solicitudes por minuto objetivo, salir del bucle
-    if rpm >= target_rpm:
+    if tpr >= target_tpr:
         break
 
     # Aumentar el número de solicitudes concurrentes para la próxima iteración
     concurrent_requests += concurrent_increment
 
 # Imprimir la tasa de solicitudes por minuto máxima alcanzada
-print(f"Maximum RPM: {rpm}, Concurrent requests: {concurrent_requests}")
+print(f"Maximum RPM: {tpr}, Concurrent requests: {concurrent_requests}")

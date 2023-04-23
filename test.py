@@ -9,7 +9,7 @@ max_requests = 1000
 concurrent_requests = 10
 
 # Definir el incremento de solicitudes concurrentes en cada iteración
-concurrent_increment = 10
+concurrent_increment = 50
 
 # Definir la tasa de solicitudes por minuto a superar
 target_tpr = 5000

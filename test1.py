@@ -2,7 +2,7 @@ import subprocess, re
 
 url = "http://localhost:5000/api/tasks"
 max_requests = 50000
-concurrent_requests = 50
+concurrent_requests = 800
 concurrent_increment = 50
 target_tpr = 1.5
 err = 0

@@ -29,6 +29,12 @@ while True:
     concurrent_requests += concurrent_increment
 print(f"Maximum Time Per Request: {tpr}, Request per second: {rpm}")
 
+url = "http://localhost:5000/api/tasks"
+max_requests = 1000
+concurrent_requests = 10
+concurrent_increment = 50
+target_tpr = 1.5
+
 print("Escenario 2")
 while True:
     cmd = f"ab -p test.json -T application/json -n {max_requests} -c {concurrent_requests} -H Content-Type:application/json -g output2.csv -v 2{url}" 

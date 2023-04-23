@@ -2,19 +2,12 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-
-
-
-@app.route('/api/auth/login', methods=['POST'])
-def upload_file():
-    # Obtener el archivo enviado
-    file = request.files['file']
-
-    # Guardar el archivo en disco
-    file.save(file.filename)
-
-    # Retornar una respuesta JSON
-    return jsonify({'message': 'Archivo recibido correctamente.'})
+@app.route('/api/tasks', methods=['GET', 'POST'])
+def tasks():
+    if request.method == 'POST':
+        return jsonify({'message': 'Datos recibidos correctamente.'})
+    elif request.method == 'GET':
+        return jsonify({'message': 'Esto Funciona'})
 
 if __name__ == '__main__':
     app.run(debug=True)

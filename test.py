@@ -23,6 +23,7 @@ while True:
     # Analizar la salida del comando ab para obtener la tasa de solicitudes por minuto
     rpm = None
     for line in result.stdout.splitlines():
+        print(line.startswith("Requests per minute:"))
         if line.startswith("Requests per minute:"):
             rpm = float(line.split(":")[1].strip())
             break

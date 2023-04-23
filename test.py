@@ -29,7 +29,7 @@ while True:
         if line.startswith("Requests per second:"):
             rpm = float(re.findall(r'\d+\.\d+',line)[0])
         if line.startswith("Failed requests:"):
-            err = float(re.findall(r'\d+\.\d+',line)[0])
+            err = float(re.findall(r'\d+',line)[0])
             if err != 0:
                 break
 

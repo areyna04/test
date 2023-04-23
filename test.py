@@ -38,7 +38,7 @@ while True:
         break
 
     # Imprimir la tasa de solicitudes por minuto actual y las solicitudes concurrentes utilizadas
-    print(f"Time per request: {tpr}, Requests per second: {rpm}, Concurrent requests: {concurrent_requests}")
+    print(f"Time per request: {tpr}, Requests per second: {rpm}, Concurrent requests: {concurrent_requests}, Error: {err}")
 
     # Si se alcanza la tasa de solicitudes por minuto objetivo, salir del bucle
     if tpr >= target_tpr :

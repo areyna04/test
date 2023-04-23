@@ -28,6 +28,10 @@ while True:
             tpr = float(re.findall(r'\d+\.\d+',line)[0])
         if line.startswith("Requests per second:"):
             rpm = float(re.findall(r'\d+\.\d+',line)[0])
+        if line.startswith("Failed requests:"):
+            err = float(re.findall(r'\d+\.\d+',line)[0])
+            if err != 0:
+                break
 
     # Si no se pudo obtener la tasa de solicitudes por minuto, salir del bucle
     if tpr is None:
@@ -37,7 +41,7 @@ while True:
     print(f"Time per request: {tpr}, Requests per second: {rpm}, Concurrent requests: {concurrent_requests}")
 
     # Si se alcanza la tasa de solicitudes por minuto objetivo, salir del bucle
-    if tpr >= target_tpr:
+    if tpr >= target_tpr :
         break
 
     # Aumentar el número de solicitudes concurrentes para la próxima iteración

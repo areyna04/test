@@ -4,7 +4,7 @@ url = "http://localhost:5000/api/tasks"
 max_requests = 1000
 concurrent_requests = 1
 concurrent_increment = 5
-target_tpr = 600
+target_tpr = 1.5
 err = 0
 
 print("Escenario 2")

@@ -5,6 +5,7 @@ max_requests = 1000
 concurrent_requests = 10
 concurrent_increment = 50
 target_tpr = 1.5
+err = 0
 
 print("Escenario 1")
 while True:
@@ -34,6 +35,7 @@ max_requests = 1000
 concurrent_requests = 1
 concurrent_increment = 5
 target_tpr = 600
+err = 0
 
 print("Escenario 2")
 while True:

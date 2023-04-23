@@ -26,10 +26,8 @@ while True:
     for line in result.stdout.splitlines():
         if line.startswith("Time per request"):
             tpr = float(re.findall(r'\d+\.\d+',line)[0])
-            break
         if line.startswith("Requests per second:"):
             rpm = float(re.findall(r'\d+\.\d+',line)[0])
-            break
 
     # Si no se pudo obtener la tasa de solicitudes por minuto, salir del bucle
     if tpr is None:

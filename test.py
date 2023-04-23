@@ -31,9 +31,9 @@ print(f"Maximum Time Per Request: {tpr}, Request per second: {rpm}, Error: {err}
 
 url = "http://localhost:5000/api/tasks"
 max_requests = 1000
-concurrent_requests = 5
+concurrent_requests = 1
 concurrent_increment = 5
-target_tpr = 1.5
+target_tpr = 600
 
 print("Escenario 2")
 while True:

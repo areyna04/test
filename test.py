@@ -27,7 +27,7 @@ while True:
     if tpr >= target_tpr :
         break
     concurrent_requests += concurrent_increment
-print(f"Maximum RPM: {tpr}, Concurrent requests: {concurrent_requests}")
+print(f"Maximum Time Per Request: {tpr}, Request per second: {rpm}")
 
 print("Escenario 2")
 while True:

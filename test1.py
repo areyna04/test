@@ -1,4 +1,5 @@
 import subprocess, re
+import argparse
 
 url = "http://localhost:5000/api/tasks"
 max_requests = 50000
@@ -7,9 +8,16 @@ concurrent_increment = 50
 target_tpr = 1.5
 err = 0
 
+parser = argparse.ArgumentParser(description='Descripción de tu script')
+parser.add_argument('--token', type=str, help='El nombre a imprimir')
+
+args = parser.parse_args()
+
+token = args.token
+
 print("Escenario 1")
 while True:
-    cmd = f"ab -n {concurrent_requests} -c {concurrent_requests} -g output1.csv {url}"
+    cmd = f"ab -n {concurrent_requests} -c {concurrent_requests} -g output1.csv -H Authorization: Bearer {token} {url}"
     print(cmd)
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     tpr = None

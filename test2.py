@@ -1,11 +1,19 @@
 import subprocess, re
+import argparse
 
-url = "http://localhost:5000/api/tasks"
+url = "http://34.70.174.129:5000/api/tasks"
 max_requests = 1000
 concurrent_requests = 1
 concurrent_increment = 5
 target_tpr = 1.5
 err = 0
+
+parser = argparse.ArgumentParser(description='Descripción de tu script')
+parser.add_argument('--token', type=str, help='El nombre a imprimir')
+
+args = parser.parse_args()
+
+token = args.token
 
 print("Escenario 2")
 while True:

@@ -5,7 +5,7 @@ url = "http://34.70.174.129:5000/api/tasks"
 max_requests = 1000
 concurrent_requests = 1
 concurrent_increment = 5
-target_tpr = 600
+target_tpr = 600000
 err = 0
 
 parser = argparse.ArgumentParser(description='Descripción de tu script')

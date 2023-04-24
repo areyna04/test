@@ -2,9 +2,9 @@ import subprocess, re
 import argparse
 
 url = "http://34.70.174.129:5000/api/tasks"
-max_requests = 1000
-concurrent_requests = 1
-concurrent_increment = 5
+max_requests = 30
+concurrent_requests = 30
+concurrent_increment = 30
 target_tpr = 600000
 err = 0
 

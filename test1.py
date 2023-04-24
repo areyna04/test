@@ -17,7 +17,7 @@ token = args.token
 
 print("Escenario 1")
 while True:
-    cmd = f"ab -n {concurrent_requests} -c {concurrent_requests} -g output1.csv -H Authorization: Bearer {token} {url}"
+    cmd = f"ab -n {concurrent_requests} -c {concurrent_requests} -g output1.csv -H  {url}"
     print(cmd)
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     tpr = None
